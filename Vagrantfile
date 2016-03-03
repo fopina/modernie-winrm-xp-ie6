@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.linked_clone = true
-    vb.name = "RepackageTest"
+    vb.name = "WinXP-WinRM"
   end
 
   # rdp forward
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     #vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "512"]
     vb.customize ["modifyvm", :id, "--vram", "128"]
-    vb.customize ["modifyvm", :id,  "--cpus", "2"]
+    vb.customize ["modifyvm", :id,  "--cpus", "1"]
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]

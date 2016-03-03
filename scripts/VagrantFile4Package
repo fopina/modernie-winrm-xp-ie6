@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "fopina/modernie-winrm-xp-ie6"
+
+  # big timeout since windows boot is very slow
+  config.vm.boot_timeout = 500
+
+  # rdp forward
+  config.vm.network "forwarded_port", guest: 3389, host: 3389, id: "rdp", auto_correct: true
+
+  # winrm config, uses modern.ie default user/password. If other credentials are used must be changed here
+  config.vm.communicator = "winrm"
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+end
